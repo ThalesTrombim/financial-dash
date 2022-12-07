@@ -1,9 +1,13 @@
-@use './colors.scss' as colors;
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
-    background: colors.$bg-white;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
 }

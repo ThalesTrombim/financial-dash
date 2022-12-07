@@ -26,14 +26,13 @@ function handleSearch() {
     display: flex;
     align-items: center;
     gap: 12px;
-
   }
   &--input-button {
     border: none;
   }
   &--input-icon {
     color: colors.$gray-light; 
-    
+
     &:hover {
       cursor: pointer;
     }
@@ -43,6 +42,7 @@ function handleSearch() {
     font-size: 14px;
     padding: 4px 8px;
     width: 100%;
+    background: colors.$white;
 
     &::placeholder {
       color: colors.$gray-light; 
