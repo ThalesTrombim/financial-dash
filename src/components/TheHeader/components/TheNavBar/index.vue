@@ -2,14 +2,14 @@
 import NavItem from './components/NavItem.vue';
 import { navbarStore } from '../../../../store/navbar';
 
-const store = navbarStore().navItemsList;
+const { navItemsList } = navbarStore();
 </script>
 
 <template>
   <div class="the-navbar--container">
     <div class="the-navbar--content">
       <nav-item  
-        v-for="item in store" 
+        v-for="item in navItemsList" 
         :key="item.label" 
         :item-id="item.id"
         :icon="item.icon"

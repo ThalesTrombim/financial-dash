@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia';
+import { ref } from 'vue';
 
 export const navbarStore = defineStore('navbar', {
   state: () => {
@@ -35,7 +36,12 @@ export const navbarStore = defineStore('navbar', {
           label: 'Settings'
         }
       ] as NavItems [],
-      itemSelected: 1 as number | null
+      selectedItem: 1 as number
+    }
+  },
+  actions: {
+    setSelectedItem(newValue: number) {
+      this.selectedItem = newValue;
     }
   }
 })

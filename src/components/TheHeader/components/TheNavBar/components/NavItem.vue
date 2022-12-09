@@ -1,7 +1,11 @@
 <script lang="ts" setup>
+import { storeToRefs } from 'pinia';
 import { navbarStore } from '../../../../../store/navbar'; 
 
-const { itemSelected } = navbarStore();
+const store = navbarStore()
+
+const { selectedItem } = storeToRefs(store);
+const { setSelectedItem } = store;
 
 const props = defineProps<{
   itemId: number,
@@ -9,19 +13,15 @@ const props = defineProps<{
   label: string,
 }>()
 
-function handleNavItemClick() {
-  console.log('click', props.itemId)
-  console.log('click', props.itemSelected)
-}
 </script>
 
 <template>
-  <a href="#" class="nav-item--container" @click="handleNavItemClick">
+  <a href="#" class="nav-item--container" @click="setSelectedItem(props.itemId)">
     <div class="nav-item--content">
       <mdicon :name="props.icon" class="the-seacher--input-icon"/>
       <span>{{ label }}</span> 
     </div>
-    <div :class="[itemId === itemSelected ? 'borderActive' : '']" class="nav-item--border"></div>
+    <div :class="[itemId === selectedItem ? 'borderActive' : '']" class="nav-item--border"></div>
   </a>
 </template>
 
