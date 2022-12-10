@@ -1,22 +1,31 @@
 <script lang="ts" setup>
 import { storeToRefs } from 'pinia';
 import { navbarStore } from '../../../../../store/navbar'; 
+import { appViewStore } from '../../../../../store/appview';
 
-const store = navbarStore()
+const navbarstore = navbarStore();
+const appviewstore = appViewStore();
 
-const { selectedItem } = storeToRefs(store);
-const { setSelectedItem } = store;
+const { selectedItem } = storeToRefs(navbarstore);
+const { setSelectedItem } = navbarstore;
+const { setAppViewState } = appviewstore;
 
 const props = defineProps<{
-  itemId: number,
-  icon: string,
-  label: string,
+  itemId: number
+  icon: string
+  label: string
+  idName: string
 }>()
+
+function handleMenuTab(id: number, idName: string) {
+  setSelectedItem(id);
+  setAppViewState(idName);
+}
 
 </script>
 
 <template>
-  <a href="#" class="nav-item--container" @click="setSelectedItem(props.itemId)">
+  <a href="#" class="nav-item--container" @click="handleMenuTab(props.itemId, props.idName)">
     <div class="nav-item--content">
       <mdicon :name="props.icon" class="the-seacher--input-icon"/>
       <span>{{ label }}</span> 

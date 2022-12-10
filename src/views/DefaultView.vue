@@ -1,12 +1,25 @@
 <script setup lang="ts">
-import BaseCard from '../components/ui/BaseCard.vue';
-import BaseButton from '../components/ui/BaseButton.vue';
-import ProfileCard from '../components/Cards/ProfileCard.vue';
+import DashboardView from './DashboardView.vue';
+import SettingsView from './SettingsView.vue';
+
+import { appViewStore } from '../store/appview';
+
+const store = appViewStore();
+
+function handleApplicationView(view: string) {
+  switch(view) {
+    case 'DASH': return DashboardView;
+    // case 'PROJECTS': return SettingsView;
+    // case 'MESSAGES': return TheBanner;
+    case 'SETTINGS': return SettingsView;
+    default: return null;
+  }
+}
 </script>
 
 <template>
   <div class="defaultview--container">
-    <profile-card />
+    <component :is="handleApplicationView(store.appviewState)" />
   </div>
 </template>
 
@@ -16,7 +29,6 @@ import ProfileCard from '../components/Cards/ProfileCard.vue';
 .defaultview {
   &--container {
     background: colors.$bg-white;
-    // height: 100vh;
     display: flex;
   }
 }

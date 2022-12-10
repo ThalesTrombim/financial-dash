@@ -1,5 +1,4 @@
 import { defineStore } from 'pinia';
-import { ref } from 'vue';
 
 export const navbarStore = defineStore('navbar', {
   state: () => {
@@ -8,32 +7,36 @@ export const navbarStore = defineStore('navbar', {
         {
           id: 1,
           icon: 'Speedometer',
-          label: 'Dashboard'
+          label: 'Dashboard',
+          idName: 'DASH'
         },
         {
           id: 2,
           icon: 'LeadPencil',
-          label: 'My projects'
+          label: 'My projects',
+          idName: 'PROJECTS'
         },
-        {
-          id: 3,
-          icon: 'LinkVariant',
-          label: 'Community'
-        },
+        // {
+        //   id: 3,
+        //   icon: 'LinkVariant',
+        //   label: 'Community'
+        // },
         {
           id: 4,
           icon: 'EmailOutline',
-          label: 'Messages'
+          label: 'Messages',
+          idName: 'MESSAGES'
         },
-        {
-          id: 5,
-          icon: 'ChartScatterPlot',
-          label: 'Reports'
-        },
+        // {
+        //   id: 5,
+        //   icon: 'ChartScatterPlot',
+        //   label: 'Reports'
+        // },
         {
           id: 6,
           icon: 'CogOutline',
-          label: 'Settings'
+          label: 'Settings',
+          idName: 'SETTINGS'
         }
       ] as NavItems [],
       selectedItem: 1 as number
@@ -49,5 +52,6 @@ export const navbarStore = defineStore('navbar', {
 interface NavItems {
   id: number
   icon: string
-  label: string
+  label: string,
+  idName: string
 }

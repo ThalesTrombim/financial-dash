@@ -14,6 +14,7 @@ const { navItemsList } = navbarStore();
         :item-id="item.id"
         :icon="item.icon"
         :label="item.label"
+        :id-name="item.idName"
       />
     </div>
   </div>
