@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { defineComponent } from 'vue';
 import TheSearcher from './components/TheSearcher.vue';
 import UserArea from './components/UserArea.vue';
 import TheNavbar from './components/TheNavBar/index.vue';

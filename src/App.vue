@@ -3,10 +3,12 @@
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 // import HelloWorld from './components/HelloWorld.vue';
 import TheHeader from './components/TheHeader/index.vue';
+import DefaultView from './views/DefaultView.vue';
 </script>
 
 <template>
-  <TheHeader />
+  <the-header />
+  <default-view />
   <!-- <HelloWorld msg="Vite + Vue" /> -->
 </template>
 
