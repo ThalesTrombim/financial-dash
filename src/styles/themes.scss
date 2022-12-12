@@ -1,4 +1,9 @@
+@use './colors.scss' as colors;
+
 .dark {
   background: colors.$gray-dark;
   color: colors.$white;
+}
+.light {
+  background: colors.$white;
 }

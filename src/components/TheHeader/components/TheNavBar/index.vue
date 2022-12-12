@@ -28,7 +28,7 @@ const { navItemsList } = navbarStore();
     padding-top: 40px;
   }
   &--content {
-    width: 80%;
+    width: 90%;
     margin: auto;
     display: flex;
     justify-content: space-between;
