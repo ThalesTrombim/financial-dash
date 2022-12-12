@@ -2,7 +2,7 @@
 import ProfileCard from '../components/Cards/ProfileCard.vue';
 import ProductCard from '../components/Cards/ProductCard.vue';
 import ProductsProgress from '../components/Cards/ProductsProgress.vue';
-
+import ChartCard from '../components/Cards/ChartCard.vue';
 const today = [
   {
     key: 'today',
@@ -20,7 +20,8 @@ const today = [
       <v-calendar :attributes="today" />
     </base-card>
     <!-- <product-card /> -->
-    <products-progress />
+    <!-- <products-progress /> -->
+    <chart-card />
   </div>
 </template>
 
