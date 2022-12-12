@@ -1,8 +1,6 @@
 <script lang="ts" setup>
-import { onMounted, ref } from 'vue';
 import ProfileCard from '../components/Cards/ProfileCard.vue';
-
-const teste = new Date();
+import ProductCard from '../components/Cards/ProductCard.vue';
 
 const today = [
   {
@@ -20,6 +18,7 @@ const today = [
     <base-card>
       <v-calendar :attributes="today" />
     </base-card>
+    <product-card />
   </div>
 </template>
 

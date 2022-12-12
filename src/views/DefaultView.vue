@@ -29,7 +29,7 @@ function handleApplicationView(view: string) {
 .defaultview {
   &--container {
     background: colors.$bg-white;
-    display: flex;
+    height: calc(100vh - 169px);
   }
 }
 

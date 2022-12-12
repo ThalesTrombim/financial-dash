@@ -34,7 +34,7 @@ const props = withDefaults(defineProps<PropsTypes>(), {
 }
 .base-button--gray {
   background: transparent;
-  border: 1px solid colors.$gray-light;
+  border: 2px solid colors.$gray-light;
   color: colors.$gray-light;
 }
 </style>
