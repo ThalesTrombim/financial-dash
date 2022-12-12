@@ -21,11 +21,11 @@ const today = [
     </base-card>
     <!-- <product-card /> -->
     <!-- <products-progress /> -->
-    <chart-card />
+    <!-- <chart-card /> -->
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" >
 .dashboard-view--container {
   display: flex;
 }

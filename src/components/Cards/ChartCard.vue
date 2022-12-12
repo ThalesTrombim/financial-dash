@@ -19,9 +19,9 @@ const chartOptions = {
 <template>
   <base-card>
     <GChart 
-    type="LineChart"
-    :data="chartData"
-    :options="chartOptions"
+      type="LineChart"
+      :data="chartData"
+      :options="chartOptions"
     />
   </base-card>
 </template>

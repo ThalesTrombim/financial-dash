@@ -23,14 +23,14 @@ function handleApplicationView(view: string) {
   </div>
 </template>
 
-<style scoped lang="scss"> 
-@use '../styles/colors.scss' as colors;
+<style lang="scss" scoped> 
+@use '../styles/colors.scss';
 
 .defaultview {
   &--container {
     background: colors.$bg-white;
     height: calc(100vh - 169px);
+
   }
 }
-
 </style>
