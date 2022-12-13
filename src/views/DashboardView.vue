@@ -38,9 +38,10 @@ const today = [
   display: grid;
   max-width: 90%;
   margin: auto;
-  padding-top: 32px;
+  padding-top: 28px;
   // background: blue;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: .5fr 3fr .5fr 3fr;
   column-gap: 24px;
   grid-template-areas:
     "profile-header profile-header profile-header"

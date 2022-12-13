@@ -17,17 +17,17 @@ const themestore = themeStore();
 @use '../../styles/themes.scss';
 
 .profilearea-header--container {
-  // display: flex;
   display: grid;
-  column-gap: 48px;
+  column-gap: 24px;
   justify-content: space-between;
-  grid-template-columns: 2fr 1fr;
-  padding-bottom: 24px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "area-1 area-2 area-3";
 
   div {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    grid-area: area-3;
 
     span {
       font-size: 14px;

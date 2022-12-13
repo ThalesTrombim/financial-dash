@@ -28,9 +28,9 @@ function handleApplicationView(view: string) {
 <style lang="scss" scoped> 
 @use '../styles/themes.scss';
 
-.defaultview {
-  &--container {
-    height: calc(100vh - 169px);
-  }
-}
+// .defaultview {
+//   &--container {
+//     height: calc(100vh - 169px);
+//   }
+// }
 </style>

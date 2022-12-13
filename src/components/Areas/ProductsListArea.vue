@@ -11,6 +11,9 @@ const themestore = themeStore();
       <li>
         <product-card />
       </li>
+      <li>
+        <product-card />
+      </li>
     </ul>
   </div>
 </template>
@@ -19,10 +22,14 @@ const themestore = themeStore();
 @use '../../styles/themes.scss';
 .productslist-area {
   &--container {
-    width: 100%;
-
+    // width: 100%;
+    height: 100%;
     ul {
+      height: 100%;
       list-style: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
   }
 }
