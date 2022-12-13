@@ -3,6 +3,8 @@ import DashboardView from './DashboardView.vue';
 import SettingsView from './SettingsView.vue';
 
 import { appViewStore } from '../store/appview';
+import { themeStore } from '../store/theme';
+const themestore = themeStore();
 
 const store = appViewStore();
 
@@ -18,19 +20,17 @@ function handleApplicationView(view: string) {
 </script>
 
 <template>
-  <div class="defaultview--container">
+  <div class="defaultview--container" :class="themestore.themeState+'-bg'">
     <component :is="handleApplicationView(store.appviewState)" />
   </div>
 </template>
 
 <style lang="scss" scoped> 
-@use '../styles/colors.scss';
+@use '../styles/themes.scss';
 
 .defaultview {
   &--container {
-    background: colors.$bg-white;
     height: calc(100vh - 169px);
-
   }
 }
 </style>

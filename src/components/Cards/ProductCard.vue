@@ -21,7 +21,7 @@
   }
   &--description {
     display: flex;
-    gap: 64px;
+    justify-content: space-between;
     margin-bottom: 32px;
     
     p {

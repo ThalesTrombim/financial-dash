@@ -6,4 +6,17 @@
 }
 .light {
   background: colors.$white;
+
+  > .title-span, > div .title-span, > div div .title-span {
+    color: colors.$gray-light;
+  }
+
+  &-bg {
+    background: colors.$bg-white;
+  }
+  &.area {
+    background: transparent;
+  }
 }
+// .light-bg {
+// }

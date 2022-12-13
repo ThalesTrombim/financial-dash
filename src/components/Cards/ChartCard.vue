@@ -18,10 +18,12 @@ const chartOptions = {
 
 <template>
   <base-card>
-    <GChart 
-      type="LineChart"
-      :data="chartData"
-      :options="chartOptions"
-    />
+    <div style="height: 100%">
+      <GChart 
+        type="LineChart"
+        :data="chartData"
+        :options="chartOptions"
+      />
+    </div>
   </base-card>
 </template>
