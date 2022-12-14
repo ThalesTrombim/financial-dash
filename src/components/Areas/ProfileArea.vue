@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import ProfileCard from '../Cards/ProfileCard.vue';
-import ChartCard from '../Cards/ChartCard.vue';
 </script>
 
 <template>

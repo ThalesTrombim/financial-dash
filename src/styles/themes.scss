@@ -9,6 +9,8 @@
 
   > .title-span, > div .title-span, > div div .title-span {
     color: colors.$gray-light;
+    font-size: 14px;
+    font-weight: 500;
   }
 
   &-bg {
@@ -18,5 +20,7 @@
     background: transparent;
   }
 }
-// .light-bg {
-// }
+
+.link-blue {
+  color: colors.$blue;
+}

@@ -1,14 +1,26 @@
 <script lang="ts" setup>
 import { themeStore } from '../../store/theme';
 const themestore = themeStore();
+
+interface HeaderPropsTypes {
+  withLink?: boolean
+  leftTitle: string
+  rightTitle: string
+  isLowerRightTitle?: boolean
+}
+
+const props = withDefaults(defineProps<HeaderPropsTypes>(), {
+  withLink: false,
+  isLowerRightTitle: false
+})
 </script>
 
 <template>
   <div class="profilearea-header--container area" :class="themestore.themeState">
-    <h3>My profile</h3>
+    <h3 :class="{ 'title-span': isLowerRightTitle }">{{ rightTitle }}</h3>
     <div>
-      <span class="title-span">LISTA DE PRODUTOS</span>
-      <a href="#">show all</a>
+      <span class="title-span">{{ leftTitle }}</span>
+      <a v-if="props.withLink" class="link-blue" href="#">show all</a>
     </div>
   </div>
 </template>
@@ -22,6 +34,7 @@ const themestore = themeStore();
   justify-content: space-between;
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas: "area-1 area-2 area-3";
+  align-items: center;
 
   div {
     display: flex;
@@ -29,8 +42,8 @@ const themestore = themeStore();
     align-items: center;
     grid-area: area-3;
 
-    span {
-      font-size: 14px;
+    a {
+      text-decoration: none;
       font-weight: 500;
     }
   }

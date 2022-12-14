@@ -23,7 +23,7 @@
     &--container {
       display: flex;
       align-items: center;
-      gap: 24px;
+      justify-content: space-between;
     }
     &--icon {
       width: 50px;

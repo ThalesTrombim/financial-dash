@@ -2,7 +2,9 @@
 import ProfileArea from '../components/Areas/ProfileArea.vue';
 import ProductsListArea from '../components/Areas/ProductsListArea.vue';
 import ChartCard from '../components/Cards/ChartCard.vue';
-import ProfileAreaHeader from '../components/Areas/ProfileAreaHeader.vue';
+import AreaHeader from '../components/Areas/AreaHeader.vue';
+import ProductsProgressArea from '../components/Areas/ProductsProgressArea.vue';
+import CalendarArea from '../components/Areas/CalendarArea.vue';
 
 const today = [
   {
@@ -16,20 +18,34 @@ const today = [
 
 <template>
   <div class="dashboard-view--container">
-    <div class="dash-area-profile--header">
-      <profile-area-header />
-    </div>
+    <area-header 
+      with-link 
+      right-title="My profile"
+      left-title="LISTA DE PRODUTOS" 
+      class="dash-area-profile--header"
+    />
+
     <div class="dash-area--1">
       <profile-area />
     </div>
-    <div class="teste">
+    <div class="chart-area">
       <chart-card></chart-card>
     </div>
     <div class="dash-area--2">
       <products-list-area />
     </div>
-    <div class="dash-area--3"></div>
-    <div class="dash-area--4"></div>
+
+    <area-header 
+      right-title="PROGRESS"
+      left-title="CALENDAR" 
+      is-lower-right-title
+      class="dash-area-progress--header"
+    />
+
+    <products-progress-area class="dash-area--3"/>
+
+    <calendar-area class="dash-area--4"/>
+    
   </div>
 </template>
 
@@ -39,13 +55,13 @@ const today = [
   max-width: 90%;
   margin: auto;
   padding-top: 28px;
-  // background: blue;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: .5fr 3fr .5fr 3fr;
   column-gap: 24px;
   grid-template-areas:
     "profile-header profile-header profile-header"
-    "profile testando products"
+    "profile chart products"
+    "progress-header progress-header progress-header"
     "progress progress calendar"
   ;
 }
@@ -53,11 +69,16 @@ const today = [
 .dash-area-profile--header {
   grid-area: profile-header;
 }
+.dash-area-progress--header {
+  grid-area: progress-header;
+  margin-top: 48px;
+  margin-bottom: 24px;
+}
 .dash-area--1 {
   grid-area: profile;
 }
-.teste {
-  grid-area: testando;
+.chart-area {
+  grid-area: chart;
 }
 .dash-area--2 {
   grid-area: products;
