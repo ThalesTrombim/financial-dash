@@ -5,9 +5,6 @@ import ProfileCard from '../Cards/ProfileCard.vue';
 <template>
 <div class="profilearea-container">
   <div class="profilearea-myprofile">
-    <!-- <div class="profilearea-myprofile--header">
-      <span>My profile</span>
-    </div> -->
     <div class="profilearea-myprofile--cards">
       <profile-card />
     </div>

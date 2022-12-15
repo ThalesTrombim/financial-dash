@@ -1,12 +1,9 @@
 <script lang="ts" setup>
 import ProductCard from '../Cards/ProductCard.vue';
-import { themeStore } from '../../store/theme';
-const themestore = themeStore();
-
 </script>
 
 <template>
-  <div class="productslist-area--container area" :class="themestore.themeState">
+  <div class="productslist-area--container">
     <ul>
       <li>
         <product-card />
@@ -19,7 +16,6 @@ const themestore = themeStore();
 </template>
 
 <style lang="scss" scoped>
-@use '../../styles/themes.scss';
 .productslist-area {
   &--container {
     // width: 100%;

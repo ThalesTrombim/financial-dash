@@ -25,12 +25,12 @@ function handleApplicationView(view: string) {
   </div>
 </template>
 
-<style lang="scss" scoped> 
+<style lang="scss" scoped>
 @use '../styles/themes.scss';
 
-// .defaultview {
-//   &--container {
-//     height: calc(100vh - 169px);
-//   }
-// }
+.defaultview {
+  &--container {
+    padding: 28px 0;
+  }
+}
 </style>

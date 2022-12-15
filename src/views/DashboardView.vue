@@ -6,14 +6,6 @@ import AreaHeader from '../components/Areas/AreaHeader.vue';
 import ProductsProgressArea from '../components/Areas/ProductsProgressArea.vue';
 import CalendarArea from '../components/Areas/CalendarArea.vue';
 
-const today = [
-  {
-    key: 'today',
-    highlight: true,
-    dates: new Date(),
-  },
-]
-
 </script>
 
 <template>
@@ -54,7 +46,6 @@ const today = [
   display: grid;
   max-width: 90%;
   margin: auto;
-  padding-top: 28px;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: .5fr 3fr .5fr 3fr;
   column-gap: 24px;
