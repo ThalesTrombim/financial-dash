@@ -2,16 +2,27 @@
 import { GChart } from 'vue-google-charts';
 
 const chartData = [
-  ['Year', 'Sales', 'Expenses', 'Profit'],
-  ['2014', 1000, 400, 200],
-  ['2015', 1170, 460, 250],
-  ['2016', 660, 1120, 300],
-  ['2017', 1030, 540, 350]
+  ['Mesês', 'Compras', 'Guardadado'],
+  ['Jan', 1000, 400],
+  ['Fev', 1170, 460],
+  ['Mar', 660, 1120],
+  ['Abril', 2500, 540],
+  ['Abril', 5000, 540],
+  ['Abril', 1030, 540],
 ];
 const chartOptions = {
   curveType: 'function',
-  title: 'Company Performance',
-  subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+  chartArea: {
+    left: 30,
+    right: 0,
+  },
+  legend: {
+    position: 'in',
+  },
+  titleTextStyle: {
+    fontSize: 16
+  },
+  colors: ['#497fff', '#0fc688']
 }
 
 </script>
@@ -19,6 +30,7 @@ const chartOptions = {
 <template>
   <base-card>
     <div style="height: 100%">
+      <h3>Investimentos</h3>
       <GChart 
         type="LineChart"
         :data="chartData"
