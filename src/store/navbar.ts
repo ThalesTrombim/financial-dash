@@ -12,9 +12,9 @@ export const navbarStore = defineStore('navbar', {
         },
         {
           id: 2,
-          icon: 'LeadPencil',
-          label: 'My projects',
-          idName: 'PROJECTS'
+          icon: 'CandyOutline',
+          label: 'Produtos',
+          idName: 'PRODUCTS'
         },
         // {
         //   id: 3,

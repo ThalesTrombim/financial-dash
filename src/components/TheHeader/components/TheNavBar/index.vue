@@ -25,7 +25,7 @@ const { navItemsList } = navbarStore();
   &--container {
     display: flex;
     border-top: 1px solid #EEE;
-    padding-top: 40px;
+    padding-top: 20px;
   }
   &--content {
     width: 90%;

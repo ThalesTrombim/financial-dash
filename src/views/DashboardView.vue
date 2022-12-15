@@ -12,8 +12,8 @@ import CalendarArea from '../components/Areas/CalendarArea.vue';
   <div class="dashboard-view--container">
     <area-header 
       with-link 
-      right-title="My profile"
-      left-title="LISTA DE PRODUTOS" 
+      left-title="My profile"
+      right-title="LISTA DE PRODUTOS" 
       class="dash-area-profile--header"
     />
 
@@ -28,9 +28,9 @@ import CalendarArea from '../components/Areas/CalendarArea.vue';
     </div>
 
     <area-header 
-      right-title="PROGRESS"
-      left-title="CALENDAR" 
-      is-lower-right-title
+      left-title="PROGRESS"
+      right-title="CALENDAR" 
+      is-lower-left-title
       class="dash-area-progress--header"
     />
 
@@ -44,10 +44,9 @@ import CalendarArea from '../components/Areas/CalendarArea.vue';
 <style lang="scss" scoped>
 .dashboard-view--container {
   display: grid;
-  max-width: 90%;
   margin: auto;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: .5fr 3fr .5fr 3fr;
+  grid-template-rows: 50px auto 80px 300px;
   column-gap: 24px;
   grid-template-areas:
     "profile-header profile-header profile-header"

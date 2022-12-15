@@ -6,7 +6,7 @@ interface HeaderPropsTypes {
   withLink?: boolean
   leftTitle: string
   rightTitle: string
-  isLowerRightTitle?: boolean
+  isLowerLeftTitle?: boolean
 }
 
 const props = withDefaults(defineProps<HeaderPropsTypes>(), {
@@ -17,9 +17,9 @@ const props = withDefaults(defineProps<HeaderPropsTypes>(), {
 
 <template>
   <div class="profilearea-header--container area" :class="themestore.themeState">
-    <h3 :class="{ 'title-span': isLowerRightTitle }">{{ rightTitle }}</h3>
+    <h3 :class="{ 'title-span': isLowerLeftTitle }">{{ leftTitle }}</h3>
     <div>
-      <span class="title-span">{{ leftTitle }}</span>
+      <span class="title-span">{{ rightTitle }}</span>
       <a v-if="props.withLink" class="link-blue" href="#">show all</a>
     </div>
   </div>

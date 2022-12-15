@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import DashboardView from './DashboardView.vue';
 import SettingsView from './SettingsView.vue';
+import ProductsView from './ProductsView.vue';
 
 import { appViewStore } from '../store/appview';
 import { themeStore } from '../store/theme';
@@ -11,7 +12,7 @@ const store = appViewStore();
 function handleApplicationView(view: string) {
   switch(view) {
     case 'DASH': return DashboardView;
-    // case 'PROJECTS': return SettingsView;
+    case 'PRODUCTS': return ProductsView;
     // case 'MESSAGES': return TheBanner;
     case 'SETTINGS': return SettingsView;
     default: return null;
@@ -30,7 +31,8 @@ function handleApplicationView(view: string) {
 
 .defaultview {
   &--container {
-    padding: 28px 0;
+    min-height: calc(100vh - 149px);
+    padding: 28px 5%;
   }
 }
 </style>

@@ -14,6 +14,15 @@ import ProductsProgress from '../Cards/ProductsProgress.vue';
       <li>
         <products-progress />
       </li>
+      <li>
+        <products-progress />
+      </li>
+      <li>
+        <products-progress />
+      </li>
+      <li>
+        <products-progress />
+      </li>
     </ul>
   </div>
 </template>
@@ -27,6 +36,7 @@ import ProductsProgress from '../Cards/ProductsProgress.vue';
       flex-direction: column;
       justify-content: space-between;
       height: 100%;
+      gap: 24px;
     }
   }
 }

@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { userStore } from '../../store/user';
-import CounterInfo from './elements/CounterInfo.vue';
 
 const store = userStore();
 
