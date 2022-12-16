@@ -16,11 +16,12 @@ export const navbarStore = defineStore('navbar', {
           label: 'Produtos',
           idName: 'PRODUCTS'
         },
-        // {
-        //   id: 3,
-        //   icon: 'LinkVariant',
-        //   label: 'Community'
-        // },
+        {
+          id: 3,
+          icon: 'GiftOpenOutline',
+          label: 'Lista de desejos',
+          idName: 'WISHLIST'
+        },
         {
           id: 4,
           icon: 'EmailOutline',

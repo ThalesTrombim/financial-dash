@@ -2,6 +2,7 @@
 import DashboardView from './DashboardView.vue';
 import SettingsView from './SettingsView.vue';
 import ProductsView from './ProductsView.vue';
+import WishList from './WishList.vue';
 
 import { appViewStore } from '../store/appview';
 import { themeStore } from '../store/theme';
@@ -13,7 +14,7 @@ function handleApplicationView(view: string) {
   switch(view) {
     case 'DASH': return DashboardView;
     case 'PRODUCTS': return ProductsView;
-    // case 'MESSAGES': return TheBanner;
+    case 'WISHLIST': return WishList;
     case 'SETTINGS': return SettingsView;
     default: return null;
   }
