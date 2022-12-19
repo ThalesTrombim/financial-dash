@@ -18,10 +18,11 @@
     position: absolute;
     margin-top: 45px;
     margin-right: 110px;
-    max-height: 245px;
+    max-height: 145px;
 
     ul {
       list-style: none;
+      cursor: pointer;
 
       :first-child {
         border-top-left-radius: 20px;
@@ -32,7 +33,7 @@
         border-bottom-right-radius: 20px;
       }
       li {
-        padding: 15px;
+        padding: 5px 15px;
         &:hover {
           background: colors.$blue;
           color: colors.$white;

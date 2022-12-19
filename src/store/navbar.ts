@@ -24,9 +24,9 @@ export const navbarStore = defineStore('navbar', {
         },
         {
           id: 4,
-          icon: 'EmailOutline',
-          label: 'Messages',
-          idName: 'MESSAGES'
+          icon: 'DatabaseArrowUp',
+          label: 'Update',
+          idName: 'UPDATE'
         },
         // {
         //   id: 5,

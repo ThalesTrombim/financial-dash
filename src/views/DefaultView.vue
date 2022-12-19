@@ -3,9 +3,11 @@ import DashboardView from './DashboardView.vue';
 import SettingsView from './SettingsView.vue';
 import ProductsView from './ProductsView.vue';
 import WishList from './WishList.vue';
+import UpdateInfosView from './UpdateInfosView.vue';
 
 import { appViewStore } from '../store/appview';
 import { themeStore } from '../store/theme';
+
 const themestore = themeStore();
 
 const store = appViewStore();
@@ -15,6 +17,7 @@ function handleApplicationView(view: string) {
     case 'DASH': return DashboardView;
     case 'PRODUCTS': return ProductsView;
     case 'WISHLIST': return WishList;
+    case 'UPDATE': return UpdateInfosView;
     case 'SETTINGS': return SettingsView;
     default: return null;
   }

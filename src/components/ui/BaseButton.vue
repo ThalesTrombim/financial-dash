@@ -36,5 +36,6 @@ const props = withDefaults(defineProps<PropsTypes>(), {
   background: transparent;
   border: 2px solid colors.$gray-light;
   color: colors.$gray-light;
+  padding: 6px 16px;
 }
 </style>
