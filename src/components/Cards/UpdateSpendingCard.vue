@@ -1,6 +1,6 @@
 <template>
   <base-card class="updatespending-card--container">
-    <span>Economias</span>
+    <h3>Economias</h3>
     <p class="value-green">R$ 0</p>
     <base-button button-label="Atualizar" is-gray />
     <base-button button-label="Adicionar" />
