@@ -22,6 +22,10 @@ function handleSearch() {
 @use '../../../styles/colors.scss' as colors;
 
 .the-seacher {
+  &--container {
+    display: flex;
+    align-items: center;
+  }
   &--input-content {
     display: flex;
     align-items: center;
