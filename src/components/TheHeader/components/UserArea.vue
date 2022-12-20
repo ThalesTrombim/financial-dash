@@ -1,5 +1,9 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
+import { authStore } from '../../../store/auth';
+
+const authstore = authStore();
+const { loginAction } = authstore;
 
 interface UserInfoType {
   imgUrl: String,
@@ -13,23 +17,25 @@ const userInfos = ref<UserInfoType>({
 
 </script>
 
-
 <template>
   <div class="user-area--container">
-    <button class="user-area--alert-icon">
-      <mdicon name="BellOutline" width="20px"/> 
-    </button>
-    <div 
-      class="user-area--image"
-      :style="{ 'background-image': 'url(' + userInfos.imgUrl + ')' }"
-    >
+    <base-button v-if="!authstore.isAuthenticated" button-label="Login" :method="loginAction"/> 
+    <div v-else class="user-area--authenticated">
+      <button class="user-area--alert-icon">
+        <mdicon name="BellOutline" width="20px"/> 
+      </button>
+      <div 
+        class="user-area--image"
+        :style="{ 'background-image': 'url(' + userInfos.imgUrl + ')' }"
+      >
+      </div>
+      <span class="user-area--name">
+        Hello {{ authstore.fistName }}!
+      </span>
+      <button class="user-area--alert-icon">
+        <mdicon name="TriangleSmallDown" /> 
+      </button>
     </div>
-    <span class="user-area--name">
-      Hello {{ userInfos.name }}!
-    </span>
-    <button class="user-area--alert-icon">
-      <mdicon name="TriangleSmallDown" /> 
-    </button>
   </div>
 </template>
 
@@ -38,6 +44,10 @@ const userInfos = ref<UserInfoType>({
 
 .user-area {
   &--container {
+    display: flex;
+    align-items: center;
+  }
+  &--authenticated {
     display: flex;
     gap: 16px;
     align-items: center;

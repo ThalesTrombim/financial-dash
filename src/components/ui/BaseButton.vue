@@ -2,7 +2,14 @@
 
 interface PropsTypes {
   buttonLabel: string
-  isGray?: boolean
+  isGray?: boolean,
+  method?: any
+}
+
+function handleMethod() {
+  if(props.method) {
+    props.method();
+  }
 }
 
 const props = withDefaults(defineProps<PropsTypes>(), {
@@ -12,7 +19,7 @@ const props = withDefaults(defineProps<PropsTypes>(), {
 </script>
 
 <template>
-  <button class="base-button" :class="{'base-button--gray': props.isGray}">
+  <button class="base-button" :class="{'base-button--gray': props.isGray}" @click="handleMethod()">
     {{ buttonLabel }}
   </button>
 </template>

@@ -17,6 +17,7 @@ import CalendarArea from '../components/Areas/CalendarArea.vue';
       class="dash-area-profile--header"
     />
 
+
     <div class="dash-area--1">
       <profile-area />
     </div>
