@@ -1,15 +1,21 @@
 <script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-// import HelloWorld from './components/HelloWorld.vue';
+import { onMounted } from 'vue';
 import TheHeader from './components/TheHeader/index.vue';
 import DefaultView from './views/DefaultView.vue';
+import { authStore } from './store/auth';
+
+const authstore = authStore();
+
+const { tryLogin } = authstore;
+
+onMounted(() => {
+  tryLogin()
+})
 </script>
 
 <template>
   <the-header />
   <default-view />
-  <!-- <HelloWorld msg="Vite + Vue" /> -->
 </template>
 
 <style scoped>

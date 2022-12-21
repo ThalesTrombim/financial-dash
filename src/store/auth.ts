@@ -1,5 +1,7 @@
 import { defineStore } from 'pinia';
-import { login } from '../firebase';
+import { auth } from '../firebase';
+import { GoogleAuthProvider } from 'firebase/auth';
+import { signInWithPopup } from 'firebase/auth';
 
 export const authStore = defineStore('auth', {
   state: () => {
@@ -13,9 +15,10 @@ export const authStore = defineStore('auth', {
     }
   },
   actions: {
-    async loginAction() {
-      const result = await login();
-      console.log(result)
+    async signInWithGoogle() {
+      const provider = new GoogleAuthProvider();
+      const result = await signInWithPopup(auth, provider);
+
       if(result.user) {
         const { displayName, photoURL} = result.user
 
@@ -24,7 +27,6 @@ export const authStore = defineStore('auth', {
           image: photoURL,
           job: 'Web Developer',
         })
-        this.isAuthenticated = true
       }
       
     },
@@ -32,13 +34,25 @@ export const authStore = defineStore('auth', {
       this.user.name = name;
       this.user.image = image;
       this.user.job = job;
+
+      this.isAuthenticated = true
+    },
+    tryLogin() {
+      auth.onAuthStateChanged(user => {
+        if(user) {
+          this.setUser({
+            name: user.displayName,
+            image: user.photoURL,
+            job: 'Web Developer',
+          })
+        }
+      })
     }
   },
   getters: {
     fistName(state) {
       return state.user.name.split(" ", 3)[0];
-    }
-
+    },
   }
 })
 

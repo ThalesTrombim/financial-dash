@@ -3,7 +3,7 @@ import { ref } from 'vue';
 import { authStore } from '../../../store/auth';
 
 const authstore = authStore();
-const { loginAction } = authstore;
+const { signInWithGoogle } = authstore;
 
 interface UserInfoType {
   imgUrl: String,
@@ -19,7 +19,7 @@ const userInfos = ref<UserInfoType>({
 
 <template>
   <div class="user-area--container">
-    <base-button v-if="!authstore.isAuthenticated" button-label="Login" :method="loginAction"/> 
+    <base-button v-if="!authstore.isAuthenticated" button-label="Login" :method="signInWithGoogle"/> 
     <div v-else class="user-area--authenticated">
       <button class="user-area--alert-icon">
         <mdicon name="BellOutline" width="20px"/> 
