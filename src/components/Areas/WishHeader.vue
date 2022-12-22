@@ -1,9 +1,10 @@
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { ref, defineEmits } from 'vue';
 import TheSearcher from '../TheHeader/components/TheSearcher.vue';
 import DropdownMenu from '../ui/DropdownMenu.vue';
 
 let showDropdown = ref(false);
+const emit = defineEmits(['open-modal'])
 
 function handleShowDropdown() {
   showDropdown.value = !showDropdown.value;
@@ -15,7 +16,7 @@ function handleShowDropdown() {
     <the-searcher class="wishheader--search"/>
     <button-filter @click="handleShowDropdown" />
     <dropdown-menu v-if="showDropdown"/>
-    <base-button button-label="Adicionar item"/>
+    <base-button @click="emit('open-modal')" button-label="Adicionar item"/>
   </base-card>
 </template>
 

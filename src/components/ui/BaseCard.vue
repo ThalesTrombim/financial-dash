@@ -4,15 +4,17 @@ import { themeStore } from '../../store/theme';
 const store = themeStore();
 interface BaseCardPropsTypes {
   noPadding?: boolean
+  heightAuto?: boolean
 }
 
 const props = withDefaults(defineProps<BaseCardPropsTypes>(), {
   noPadding: false,
+  heightAuto: false
 }) 
 </script>
 
 <template>
-  <div class="card" :class="[store.themeState, {'no-padding': props.noPadding}]">
+  <div class="card" :class="[store.themeState, {'no-padding': props.noPadding}, {'height-auto': props.heightAuto}]">
     <slot></slot>
   </div>
 </template>
@@ -28,6 +30,9 @@ const props = withDefaults(defineProps<BaseCardPropsTypes>(), {
 }
 .no-padding {
   padding: 0px;
+}
+.height-auto {
+  height: auto;
 }
 
 </style>
