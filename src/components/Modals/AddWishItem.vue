@@ -1,5 +1,8 @@
 <script lang="ts" setup>
-import { defineEmits, reactive } from 'vue';
+import { collection, addDoc } from '@firebase/firestore';
+import { db } from '../../firebase';
+import { reactive } from 'vue';
+
 const emit = defineEmits(['close-modal'])
 
 interface NewItemtypes {
@@ -22,8 +25,17 @@ function handleModalClick(event: any) {
   }
 } 
 
-function handleAddItem() {
+async function handleAddItem() {
+  const { name, amount, link, imageUrl } = newItem;
+
   console.log(newItem);
+  console.log(name);
+  await addDoc(collection(db, 'wishlist'), {
+    name,
+    amount, 
+    link, 
+    imageUrl
+  })
 }
 
 </script>

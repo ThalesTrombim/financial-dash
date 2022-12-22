@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref, defineEmits } from 'vue';
+import { ref } from 'vue';
 import TheSearcher from '../TheHeader/components/TheSearcher.vue';
 import DropdownMenu from '../ui/DropdownMenu.vue';
 
