@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { defineComponent } from "@vue/runtime-core";
 
 function handleSearch() {
   console.log('testando')

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { collection, addDoc } from '@firebase/firestore';
+import { collection, doc, setDoc } from '@firebase/firestore';
 import { db } from '../../firebase';
 import { reactive } from 'vue';
 
@@ -7,16 +7,18 @@ const emit = defineEmits(['close-modal'])
 
 interface NewItemtypes {
   name: string
-  amount: number
+  amount: number | null
   link: string
-  imageUrl: string
+  imageUrl: string,
+  isFavorite: boolean
 }
 
 const newItem: NewItemtypes = reactive({
   name: '',
   amount: 0,
   link: '',
-  imageUrl: ''
+  imageUrl: '',
+  isFavorite: false
 })
 
 function handleModalClick(event: any) {
@@ -30,7 +32,9 @@ async function handleAddItem() {
 
   console.log(newItem);
   console.log(name);
-  await addDoc(collection(db, 'wishlist'), {
+  const newItemRef = doc(collection(db, 'wishlist'));
+
+  await setDoc(newItemRef, {
     name,
     amount, 
     link, 
@@ -51,7 +55,7 @@ async function handleAddItem() {
         </div>
         <div class="addwishitem--inputs">
           <label for="item_price">Média de valor do item</label>
-          <input type="text" id="item_price" v-model="newItem.amount">
+          <input type="text" id="item_price" v-model="newItem.amount" v-on:focus="newItem.amount = null">
         </div>
         <div class="addwishitem--inputs">
           <label for="item_url">Link</label>
@@ -88,9 +92,12 @@ async function handleAddItem() {
     justify-content: center;
   }
   &--container {
-    width: 40%;
-    form h3 {
-      margin-bottom: 24px;
+    width: 50%;
+    form {
+      padding: 24px 48px;
+      h3 {
+        margin-bottom: 24px;
+      }
     }
   }
   &--inputs {
