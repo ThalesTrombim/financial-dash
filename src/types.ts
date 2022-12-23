@@ -1,8 +1,8 @@
 export interface WishItemTypes {
-  name: string
+  name?: string
   amount: number
-  link: string
+  link?: string
   imageUrl?: string
   isFavorite: boolean
-  id?: string
+  id: string,
 }

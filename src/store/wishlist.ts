@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 
 import { db } from '../firebase';
-import { getDocs, collection, CollectionReference, updateDoc, doc, onSnapshot } from 'firebase/firestore';
+import { collection, CollectionReference, updateDoc, doc, onSnapshot, deleteDoc } from 'firebase/firestore';
 
 import { WishItemTypes } from '../types';
 
@@ -26,6 +26,9 @@ export const wishlistStore = defineStore('wishlist', {
       const itemRef = doc(db, 'wishlist', id);
 
       await updateDoc(itemRef, { isFavorite: newVal});
+    },
+    async deleteItemFromWishList(id: string) {
+      await deleteDoc(doc(db, "wishlist", id));
     }
   },
 })

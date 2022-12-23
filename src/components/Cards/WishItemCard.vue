@@ -3,17 +3,16 @@ import { moneyValueMask } from '../../utils';
 import { wishlistStore } from '../../store/wishlist';
 
 interface WishItemTypes {
-  name: string
+  name?: string
   amount: number
-  link: string
+  link?: string
   imageUrl?: string
   isFavorite: boolean
   id: string,
-  key?: any
 }
 
 const wishliststore = wishlistStore();
-const { handleFavorite } = wishliststore;
+const { handleFavorite, deleteItemFromWishList } = wishliststore;
 
 const { name, amount, isFavorite, link, id, imageUrl } = defineProps<WishItemTypes>();
 
@@ -43,7 +42,11 @@ const { name, amount, isFavorite, link, id, imageUrl } = defineProps<WishItemTyp
         :class="{'is-favorite': isFavorite}"
         @click="handleFavorite(id, !isFavorite)"
       /> 
-      <mdicon name="Delete" class="wishitemcard--icon icon-delete"/> 
+      <mdicon 
+        name="Delete" 
+        class="wishitemcard--icon icon-delete"
+        @click="deleteItemFromWishList(id)"
+      /> 
     </div>
   </base-card>
 </template>
