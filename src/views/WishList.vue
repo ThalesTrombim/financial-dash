@@ -3,7 +3,6 @@ import { onMounted, ref } from 'vue';
 import WishHeader from '../components/Areas/WishHeader.vue';
 import AddWishItem from '../components/Modals/AddWishItem.vue';
 import WishItemCard from '../components/Cards/WishItemCard.vue';
-import { WishItemTypes } from '../types';
 
 import { wishlistStore } from '../store/wishlist';
 

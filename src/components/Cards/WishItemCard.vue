@@ -1,8 +1,9 @@
 <script lang="ts" setup>
+import { moneyValueMask } from '../../utils';
 
 interface WishItemTypes {
   name: string
-  amount: number | null
+  amount: number
   link: string
   imageUrl?: string
   isFavorite: boolean
@@ -20,7 +21,7 @@ const { name, amount, isFavorite, link, id, imageUrl } = defineProps<WishItemTyp
     </div>
     <div class="wishitemcard--texts">
       <span class="title-span">Média de valor</span>
-      <p class="value-green">R$ {{ amount }}</p>
+      <p class="value-green">R$ {{ moneyValueMask(amount) }}</p>
     </div>
     <div class="wishitemcard--texts">
       <span class="title-span">Link</span>

@@ -18,5 +18,5 @@ export const wishlistStore = defineStore('wishlist', {
         this.wishlist.push({ ...item.data(), id: item.id })
       })
     }
-  }
+  },
 })

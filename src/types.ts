@@ -1,6 +1,6 @@
 export interface WishItemTypes {
   name: string
-  amount: number | null
+  amount: number
   link: string
   imageUrl?: string
   isFavorite: boolean
