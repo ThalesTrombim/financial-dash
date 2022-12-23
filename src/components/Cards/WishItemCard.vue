@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { moneyValueMask } from '../../utils';
+import { wishlistStore } from '../../store/wishlist';
 
 interface WishItemTypes {
   name: string
@@ -7,8 +8,13 @@ interface WishItemTypes {
   link: string
   imageUrl?: string
   isFavorite: boolean
-  id?: string
+  id: string,
+  key?: any
 }
+
+const wishliststore = wishlistStore();
+const { handleFavorite } = wishliststore;
+
 const { name, amount, isFavorite, link, id, imageUrl } = defineProps<WishItemTypes>();
 
 </script>
@@ -31,7 +37,12 @@ const { name, amount, isFavorite, link, id, imageUrl } = defineProps<WishItemTyp
       <img v-if="imageUrl !== ''" :src="imageUrl" alt="teste">
     </div>
     <div class="wishitemcard--actions">
-      <mdicon name="Heart" class="wishitemcard--icon icon-heart" :class="{'is-favorite': isFavorite}"/> 
+      <mdicon 
+        name="Heart" 
+        class="wishitemcard--icon icon-heart" 
+        :class="{'is-favorite': isFavorite}"
+        @click="handleFavorite(id, !isFavorite)"
+      /> 
       <mdicon name="Delete" class="wishitemcard--icon icon-delete"/> 
     </div>
   </base-card>
