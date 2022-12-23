@@ -3,17 +3,11 @@ import { collection, doc, setDoc } from '@firebase/firestore';
 import { db } from '../../firebase';
 import { reactive } from 'vue';
 
+import { WishItemTypes } from '../../types';
+
 const emit = defineEmits(['close-modal'])
 
-interface NewItemtypes {
-  name: string
-  amount: number | null
-  link: string
-  imageUrl: string,
-  isFavorite: boolean
-}
-
-const newItem: NewItemtypes = reactive({
+const newItem: WishItemTypes = reactive({
   name: '',
   amount: 0,
   link: '',
@@ -28,17 +22,15 @@ function handleModalClick(event: any) {
 } 
 
 async function handleAddItem() {
-  const { name, amount, link, imageUrl } = newItem;
-
-  console.log(newItem);
-  console.log(name);
+  const { name, amount, link, imageUrl, isFavorite } = newItem;
   const newItemRef = doc(collection(db, 'wishlist'));
 
   await setDoc(newItemRef, {
     name,
     amount, 
     link, 
-    imageUrl
+    imageUrl,
+    isFavorite
   })
 }
 
@@ -55,7 +47,7 @@ async function handleAddItem() {
         </div>
         <div class="addwishitem--inputs">
           <label for="item_price">Média de valor do item</label>
-          <input type="text" id="item_price" v-model="newItem.amount" v-on:focus="newItem.amount = null">
+          <input type="number" id="item_price" v-model="newItem.amount" v-on:focus="newItem.amount = null">
         </div>
         <div class="addwishitem--inputs">
           <label for="item_url">Link</label>
@@ -125,6 +117,11 @@ async function handleAddItem() {
     gap: 32px;
     margin-top: 32px;
   }
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; 
 }
 
 </style>

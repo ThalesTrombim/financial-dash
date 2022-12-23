@@ -3,27 +3,20 @@ import { defineStore } from 'pinia';
 import { db } from '../firebase';
 import { getDocs, collection, CollectionReference } from 'firebase/firestore';
 
-export const wishlistStore = defineStore('wishtlist', {
+import { WishItemTypes } from '../types';
+
+export const wishlistStore = defineStore('wishlist', {
   state: () => {
     return {
-      wishlist: [] as wishItem[],
+      wishlist: [] as WishItemTypes[],
     }
   },
   actions: {
     async getAllWishItems() {
-      const result = await getDocs(collection(db, 'wishlist') as CollectionReference<wishItem>)
+      const result = await getDocs(collection(db, 'wishlist') as CollectionReference<WishItemTypes>)
       result.docs.map((item) => {
-        // console.log(item.data())
-        this.wishlist.push(item.data())
+        this.wishlist.push({ ...item.data(), id: item.id })
       })
     }
   }
 })
-
-interface wishItem {
-  name: string
-  link: string
-  imageUrl: string
-  amount: number
-  isFavorite: boolean
-}

@@ -3,6 +3,7 @@ import { onMounted, ref } from 'vue';
 import WishHeader from '../components/Areas/WishHeader.vue';
 import AddWishItem from '../components/Modals/AddWishItem.vue';
 import WishItemCard from '../components/Cards/WishItemCard.vue';
+import { WishItemTypes } from '../types';
 
 import { wishlistStore } from '../store/wishlist';
 
@@ -16,8 +17,6 @@ function handleModal(state: boolean) {
 
 onMounted(async () => {
   getAllWishItems();
-  console.log(wishliststore.wishlist)
-
 })
 
 </script>
@@ -28,10 +27,11 @@ onMounted(async () => {
     <h3>Lista de desejos</h3>
     <wish-header @open-modal="handleModal(true)"/>
     <div class="wishlist-cards--content">
-      <wish-item-card v-for="teste in wishliststore.wishlist" :key="teste.amount"/>
-      <!-- <wish-item-card />
-      <wish-item-card />
-      <wish-item-card /> -->
+      <wish-item-card 
+        v-for="item in wishliststore.wishlist" 
+        v-bind="item"
+        :key="item.id"
+      />
     </div>
   </div>
 </template>

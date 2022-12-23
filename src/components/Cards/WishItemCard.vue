@@ -1,22 +1,36 @@
+<script lang="ts" setup>
+
+interface WishItemTypes {
+  name: string
+  amount: number | null
+  link: string
+  imageUrl?: string
+  isFavorite: boolean
+  id?: string
+}
+const { name, amount, isFavorite, link, id, imageUrl } = defineProps<WishItemTypes>();
+
+</script>
+
 <template>
   <base-card class="wishitemcard--container" no-padding>
     <div class="wishitemcard--texts">
       <span class="title-span">Nome</span>
-      <p>produto xpto </p>
+      <p>{{ name }}</p>
     </div>
     <div class="wishitemcard--texts">
       <span class="title-span">Média de valor</span>
-      <p class="value-green">R$ 2500</p>
+      <p class="value-green">R$ {{ amount }}</p>
     </div>
     <div class="wishitemcard--texts">
       <span class="title-span">Link</span>
-      <p>Visualizar produto</p>
+      <a :href="link" target="_blank">Visualizar produto</a>
     </div>
-    <div class="wishitemcard--texts">
-      <img src="https://http2.mlstatic.com/D_NQ_NP_888681-MLA49448516248_032022-O.webp" alt="teste">
+    <div class="wishitemcard--texts image-area">
+      <img v-if="imageUrl !== ''" :src="imageUrl" alt="teste">
     </div>
     <div class="wishitemcard--actions">
-      <mdicon name="Heart" class="wishitemcard--icon icon-heart"/> 
+      <mdicon name="Heart" class="wishitemcard--icon icon-heart" :class="{'is-favorite': isFavorite}"/> 
       <mdicon name="Delete" class="wishitemcard--icon icon-delete"/> 
     </div>
   </base-card>
@@ -29,20 +43,31 @@
   &--container {
     display: flex;
     justify-content: space-between;
-    padding: 20px 64px!important;
+    padding: 20px 48px!important;
   }
   &--texts {
     display: flex;
     flex-direction: column;
-    max-width: 25%;
+    width: 20%;
 
-    p {
+    p, a {
       margin-top: 8px;
+      text-decoration: none;
+    }
+    a {
+      color: inherit;
+      &:hover {
+        color: colors.$blue;
+      }
     }
 
     img {
       width: 50px;
       max-height: 100px;
+    }
+
+    &.image-area {
+      align-items: center;
     }
   }
   &--actions {
@@ -60,5 +85,9 @@
 }
 .icon-delete:hover {
   color: #de052e;
+}
+
+.is-favorite {
+  color: #790079;
 }
 </style>
