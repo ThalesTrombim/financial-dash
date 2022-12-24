@@ -3,6 +3,7 @@ import { onMounted, ref } from 'vue';
 import WishHeader from '../components/Areas/WishHeader.vue';
 import AddWishItem from '../components/Modals/AddWishItem.vue';
 import WishItemCard from '../components/Cards/WishItemCard.vue';
+import ConfirmModal from '../components/Modals/ConfirmModal.vue';
 
 import { wishlistStore } from '../store/wishlist';
 
@@ -22,6 +23,7 @@ onMounted(async () => {
 
 <template>
   <div class="wishlist--container">
+    <confirm-modal />
     <add-wish-item v-if="isModalOpen" @close-modal="handleModal(false)"/>
     <h3>Lista de desejos</h3>
     <wish-header @open-modal="handleModal(true)"/>
