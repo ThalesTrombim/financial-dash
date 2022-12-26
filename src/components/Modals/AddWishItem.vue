@@ -5,7 +5,7 @@ import { reactive } from 'vue';
 
 import { WishItemTypes } from '../../types';
 
-const emit = defineEmits(['close-modal'])
+const emit = defineEmits(['close-modal']);
 
 const newItem: WishItemTypes = reactive({
   name: '',
