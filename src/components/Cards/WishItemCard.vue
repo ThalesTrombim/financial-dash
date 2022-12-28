@@ -43,7 +43,7 @@ function handleCloseModal(state: boolean) {
     </div>
     <div class="wishitemcard--texts">
       <span class="title-span">Média de valor</span>
-      <p class="value-green">R$ {{ moneyValueMask(amount) }}</p>
+      <p class="value-green">{{ moneyValueMask(amount) }}</p>
     </div>
     <div class="wishitemcard--texts">
       <span class="title-span">Link</span>

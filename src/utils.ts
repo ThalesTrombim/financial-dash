@@ -1,5 +1,5 @@
 function moneyValueMask(val: number) {
-  return val.toLocaleString() + ',00';
+  return `R$ ${val.toLocaleString()}`;
 }
 
 export { moneyValueMask };
