@@ -4,5 +4,12 @@ export interface WishItemTypes {
   link?: string
   imageUrl?: string
   isFavorite: boolean
-  id: string,
+  id: string
+}
+
+export interface InvestimentsTypes {
+  title: string
+  amount: number
+  isEconomy: boolean
+  id: string
 }
