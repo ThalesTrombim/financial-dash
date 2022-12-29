@@ -5,16 +5,20 @@ import { collection, CollectionReference, updateDoc, doc, onSnapshot, deleteDoc 
 
 import { WishItemTypes } from '../types';
 
+interface WishItemTypesStore extends WishItemTypes {
+  id: string
+}
+
 export const wishlistStore = defineStore('wishlist', {
   state: () => {
     return {
-      wishlist: [] as WishItemTypes[],
+      wishlist: [] as WishItemTypesStore[],
     }
   },
   actions: {
     async getAllWishItems() {
-      onSnapshot(collection(db,"wishlist") as CollectionReference<WishItemTypes>, res => {
-        const newWishList = [] as WishItemTypes[];
+      onSnapshot(collection(db,"wishlist") as CollectionReference<WishItemTypesStore>, res => {
+        const newWishList = [] as WishItemTypesStore[];
 
         res.docs.map(item => {
           newWishList.push({ ...item.data(), id: item.id })

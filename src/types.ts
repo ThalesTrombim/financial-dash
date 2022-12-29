@@ -1,10 +1,9 @@
 export interface WishItemTypes {
   name?: string
-  amount: number
+  amount: number | null
   link?: string
   imageUrl?: string
   isFavorite: boolean
-  id: string
 }
 
 export interface InvestimentsTypes {
