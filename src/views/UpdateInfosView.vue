@@ -23,6 +23,7 @@ onMounted(() => {
         :title="saving.title" 
         :amount="saving.amount"
         :is-economy="saving.isEconomy"
+        :ref-id="saving.id"
       />
     </div>
   </div>

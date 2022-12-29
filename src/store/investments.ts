@@ -22,6 +22,10 @@ export const savingsStore = defineStore('savings', {
         })
       })
     },
+    async updateAmount(id: string, newAmount: number) {
+      const itemRef = doc(db, 'savings', id);
+      await updateDoc(itemRef, { amount: newAmount});
+    }
     // async handleFavorite(id: string, newVal: boolean) {
     //   const itemRef = doc(db, 'wishlist', id);
 
