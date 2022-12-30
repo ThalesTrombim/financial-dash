@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 
 import { db } from '../firebase';
-import { collection, CollectionReference, updateDoc, doc, onSnapshot, deleteDoc } from 'firebase/firestore';
+import { collection, CollectionReference, updateDoc, doc, onSnapshot, deleteDoc, Timestamp } from 'firebase/firestore';
 
 import { InvestimentsTypes } from '../types';
 
@@ -9,6 +9,7 @@ export const savingsStore = defineStore('savings', {
   state: () => {
     return {
       savingsList: [] as InvestimentsTypes[],
+      loadingData: false as boolean
     }
   },
   actions: {
@@ -35,4 +36,24 @@ export const savingsStore = defineStore('savings', {
     //   await deleteDoc(doc(db, "wishlist", id));
     // }
   },
+  getters: {
+    getSavingsAmount(state) {
+      state.loadingData = true;
+
+      const chartData = [
+        ['Categoria', 'Total', { role: 'style'}],
+      ] as any;
+
+      state.savingsList.map(item => {
+        const newArray = [item.title, item.amount, item.color];
+        chartData.push(newArray);
+      })
+
+      if(state.savingsList.length >= 2) {
+        state.loadingData = false;
+      }
+
+      return chartData;
+    }
+  }
 })

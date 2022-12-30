@@ -11,4 +11,5 @@ export interface InvestimentsTypes {
   amount: number
   isEconomy: boolean
   id: string
+  color: string
 }

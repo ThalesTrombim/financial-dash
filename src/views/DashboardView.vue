@@ -5,6 +5,14 @@ import ChartCard from '../components/Cards/ChartCard.vue';
 import AreaHeader from '../components/Areas/AreaHeader.vue';
 import ProductsProgressArea from '../components/Areas/ProductsProgressArea.vue';
 import CalendarArea from '../components/Areas/CalendarArea.vue';
+import { onMounted } from 'vue';
+
+import { savingsStore } from '../store/investments';
+const savings = savingsStore();
+
+onMounted(() => {
+  savingsStore().getSavingItems();
+})
 
 </script>
 
@@ -17,12 +25,11 @@ import CalendarArea from '../components/Areas/CalendarArea.vue';
       class="dash-area-profile--header"
     />
 
-
     <div class="dash-area--1">
       <profile-area />
     </div>
     <div class="chart-area">
-      <chart-card></chart-card>
+      <chart-card :infos="savings.getSavingsAmount"></chart-card>
     </div>
     <div class="dash-area--2">
       <products-list-area />
