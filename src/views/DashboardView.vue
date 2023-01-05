@@ -25,15 +25,11 @@ onMounted(() => {
       class="dash-area-profile--header"
     />
 
-    <div class="dash-area--1">
-      <profile-area />
-    </div>
-    <div class="chart-area">
-      <chart-card :infos="savings.getSavingsAmount"></chart-card>
-    </div>
-    <div class="dash-area--2">
-      <products-list-area />
-    </div>
+    <profile-area class="dash-area--1" />
+
+    <chart-card :infos="savings.getSavingsAmount" class="chart-area" />
+
+    <products-list-area class="dash-area--2" />
 
     <area-header 
       left-title="PROGRESS"

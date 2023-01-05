@@ -16,15 +16,12 @@ import ShoppingSummaryArea from '../components/Areas/ShoppingSummaryArea.vue';
     <products-progress-area class="productsview--content"/>
 
     <shopping-summary-area class="productsview--sidecard"/>
-    <!-- <div class="productsview--sidecard">side</div> -->
   </div>
 </template>
 
 <style lang="scss" setup>
 .productsview--container {
   display: grid;
-  // height: 100%;
-  // height: 100vh;
   column-gap: 24px;
   margin: auto;
   grid-template-columns: 1fr 1fr 1fr;

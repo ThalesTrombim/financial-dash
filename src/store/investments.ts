@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 
 import { db } from '../firebase';
-import { collection, CollectionReference, updateDoc, doc, onSnapshot, deleteDoc, Timestamp } from 'firebase/firestore';
+import { collection, CollectionReference, updateDoc, doc, onSnapshot } from 'firebase/firestore';
 
 import { InvestimentsTypes } from '../types';
 
@@ -27,14 +27,6 @@ export const savingsStore = defineStore('savings', {
       const itemRef = doc(db, 'savings', id);
       await updateDoc(itemRef, { amount: newAmount});
     }
-    // async handleFavorite(id: string, newVal: boolean) {
-    //   const itemRef = doc(db, 'wishlist', id);
-
-    //   await updateDoc(itemRef, { isFavorite: newVal});
-    // },
-    // async deleteItemFromWishList(id: string) {
-    //   await deleteDoc(doc(db, "wishlist", id));
-    // }
   },
   getters: {
     getSavingsAmount(state) {
